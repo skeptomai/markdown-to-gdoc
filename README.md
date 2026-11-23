@@ -13,5 +13,5 @@ Start with **[docs/tutorial.md](docs/tutorial.md)**: it covers installing the to
 build scripts, styling, troubleshooting, and how to check the result. The tutorial is built
 with these scripts, so building it is also the smoke test.
 
-Layout: `scripts/pdf/`, `scripts/docx/` (with `docx-style/`), `docs/`, and `CLAUDE.md` plus
-`.claude/skills/` for working with Claude Code.
+Layout: `scripts/pdf/`, `scripts/docx/` (with `docx-style/`), `docs/`, and `AGENTS.md` (instructions for
+any AI coding agent), `CLAUDE.md` (imports it for Claude Code) and `.claude/skills/`.

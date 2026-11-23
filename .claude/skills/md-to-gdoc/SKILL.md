@@ -15,7 +15,7 @@ description: >
 bash scripts/docx/md-to-docx.sh --gdrive gdrive: <input.md> <scratch-dir>/<fixed-name>.docx
 ```
 
-Rules (see CLAUDE.md for the reasons):
+Rules (see AGENTS.md for the reasons):
 
 - Use the **same output filename every time** for a given document, ending in `.docx`, so
   the existing Google Doc is updated in place. Look it up with `rclone lsf gdrive:` if unsure.

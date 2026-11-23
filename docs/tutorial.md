@@ -118,7 +118,8 @@ cd markdown-to-gdoc
 ```
 markdown-to-gdoc/
   README.md
-  CLAUDE.md                    rules for an AI assistant working in this repo
+  AGENTS.md                    rules for an AI coding agent working in this repo
+  CLAUDE.md                    imports AGENTS.md for Claude Code
   .claude/skills/              ready-made /md-to-pdf and /md-to-gdoc skills
   docs/
     tutorial.md                this document, and the first thing you build
@@ -313,7 +314,7 @@ show up in Google.
 # Working with an AI assistant on this {#sec-assistant}
 
 This pipeline was built and run with Claude Code, and the same loop works with any coding
-assistant that can run shell commands. What the assistant needs is small:
+assistant that can run shell commands, such as Codex. What the assistant needs is small:
 
 | Need | Detail |
 |----------------------|------------------------------------------------------|
@@ -322,9 +323,11 @@ assistant that can run shell commands. What the assistant needs is small:
 | No connector | The Drive connector is not used for uploads (see [Connect Google Drive](#sec-rclone)) |
 | Guard rails | Ask-before-run rules for destructive rclone commands |
 
-The repository ships a `CLAUDE.md` with the rules below and two skills, `/md-to-pdf` and
-`/md-to-gdoc`, so an assistant started in the repository folder already knows the
-workflow.
+The repository ships its rules once, in `AGENTS.md`, the file that Codex and several other
+agents read. `CLAUDE.md` imports it with a single `@AGENTS.md` line, plus a short note, because Claude Code
+reads `CLAUDE.md` rather than `AGENTS.md`. Both agents therefore see the same instructions,
+and you edit only one file. Two Claude Code skills, `/md-to-pdf` and `/md-to-gdoc`, are also
+included. Other agents do not load them, but `AGENTS.md` describes the same commands.
 
 Sensible guard rails: allow read-only listing and `rclone copyto` to your `gdrive:` remote,
 and require confirmation for `delete`, `purge`, `sync`, `move`, `config`, and especially
