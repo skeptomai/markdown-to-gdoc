@@ -1,0 +1,5 @@
+# Generated Word template; rebuilt from docx-style/build-reference.py when missing
+scripts/docx/docx-style/nvidia-reference.docx
+# Local build outputs
+*.docx
+__pycache__/
