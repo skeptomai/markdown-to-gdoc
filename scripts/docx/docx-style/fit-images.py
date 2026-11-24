@@ -6,7 +6,7 @@ top-to-bottom flowchart) can come out many inches taller than the page. Word and
 Docs then clip it or push it onto a page of its own. This shrinks any image taller than
 MAX_HEIGHT_IN so it fits on a page.
 
-Usage: fit-images.py <file.docx> [max-height-inches]   (default 6.0)
+Usage: fit-images.py <file.docx> [max-height-inches]   (default 7.0)
 """
 import sys, zipfile, shutil, tempfile
 from lxml import etree
@@ -17,7 +17,7 @@ A = "http://schemas.openxmlformats.org/drawingml/2006/main"
 NS = {"wp": WP, "a": A}
 
 path = sys.argv[1]
-max_emu = int(float(sys.argv[2] if len(sys.argv) > 2 else 6.0) * EMU_PER_IN)
+max_emu = int(float(sys.argv[2] if len(sys.argv) > 2 else 7.0) * EMU_PER_IN)
 
 with zipfile.ZipFile(path) as z:
     infos = z.infolist()

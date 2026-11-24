@@ -59,7 +59,7 @@ for MMD in "$TMPDIR"/diagram-*.mmd; do
 done
 [[ $COUNT -eq 0 ]] && echo "    (no mermaid blocks found)"
 
-# Cap image height at 70% of the text area. pandoc 3.x fits images to the FULL text height
+# Cap image height at 78% of the text area (about 7 in on a letter page). pandoc 3.x fits images to the FULL text height
 # (macro \pandocbounded), so a tall diagram fills a page and can push the page number off
 # it. Older pandoc versions use graphicx keys instead, hence the fallback.
 cat > "$TMPDIR/header.tex" <<'TEXEOF'
@@ -68,14 +68,14 @@ cat > "$TMPDIR/header.tex" <<'TEXEOF'
   \ifdefined\pandocbounded
     \renewcommand*\pandocbounded[1]{%
       \sbox\pandoc@box{#1}%
-      \Gscale@div\@tempa{0.7\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+      \Gscale@div\@tempa{0.78\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
       \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
       \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi%
       \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
       \else\usebox{\pandoc@box}%
       \fi}%
   \else
-    \setkeys{Gin}{width=\linewidth,height=0.7\textheight,keepaspectratio}%
+    \setkeys{Gin}{width=\linewidth,height=0.78\textheight,keepaspectratio}%
   \fi}
 \makeatother
 TEXEOF

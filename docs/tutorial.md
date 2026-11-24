@@ -280,8 +280,8 @@ The look comes from four small pieces, all in `scripts/docx/docx-style/`:
 **Why `fit-images.py` exists.** pandoc scales every image to the page width. A tall, narrow
 diagram, such as a top-to-bottom flowchart with several steps, then comes out far taller
 than the page: one test diagram measured 6.5 by 17.7 inches. In the PDF it overflowed the
-page and pushed the page number off it. The PDF script caps image height at 70 percent of
-the text area, and `fit-images.py` does the same for the Word file. The better cure is
+page and pushed the page number off it. Both build scripts now cap image height at about 7
+inches: the PDF script at 78 percent of the text area, and `fit-images.py` for the Word file. The better cure is
 still to draw wide diagrams: use `flowchart LR` and short labels.
 
 The template is rebuilt automatically if `nvidia-reference.docx` is missing. To restyle the
